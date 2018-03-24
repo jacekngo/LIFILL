@@ -5,12 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.widget.TextView;
 
 import com.example.jacek.lifill.Data.Place;
 import com.example.jacek.lifill.Data.ProductDto;
 import com.example.jacek.lifill.Providers.FakeDataProvider;
+import com.wdullaer.swipeactionadapter.SwipeActionAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
-    Context context;
     private Place currentLocation;
     private Integer counter;
     List<ProductDto> listOfProducts;
@@ -43,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
         listOfProducts = new ArrayList<>();
         adapter = new Adapter(listOfProducts);
         recyclerView.setAdapter(adapter);
+        SwipeController sc = new SwipeController();
+        ItemTouchHelper itemTouchhelper = new ItemTouchHelper(sc);
+        itemTouchhelper.attachToRecyclerView(recyclerView);
     }
 
 
@@ -55,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
             counter++;
         }
         Place[] allLocations = Place.values();
-
         if (counter >= allLocations.length) {
             counter = 0;
         }
