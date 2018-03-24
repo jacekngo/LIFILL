@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.example.jacek.lifill.Data.Place;
+import com.example.jacek.lifill.Providers.FakeDataProvider;
 
 import java.util.List;
 
@@ -69,32 +70,9 @@ public class MainActivity extends AppCompatActivity {
         currentLocation = sensorInfo;
         locationTv.setText(currentLocation.toString());
 
+        FakeDataProvider dataToDisplay = new FakeDataProvider(currentLocation);
 
-//        switch (sensorInfo) {
-//            case Bathroom:
-//                //code
-//                break;
-//            case Hall:
-//                //code
-//                break;
-//            case Garage:
-//                //code
-//                break;
-//            case Kithen:
-//                //code
-//                break;
-//            case Toilet:
-//                //code
-//                break;
-//            case Bedroom:
-//                //code
-//                break;
-//            case LivingRoom:
-//                //code
-//                break;
-//            default:
-//                //code
-//        }
+
 
 
     }
