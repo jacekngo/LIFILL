@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Integer counter;
 
     @BindView(R.id.tv_location)
-    private TextView locationTv;
+    protected TextView locationTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
             counter++;
         }
         Place[] allLocations = Place.values();
+
+        if (counter>=allLocations.length) {
+            counter=0;}
         onChangeLocation(allLocations[counter]);
     }
 
@@ -60,31 +63,31 @@ public class MainActivity extends AppCompatActivity {
         locationTv.setText(currentLocation.toString());
 
 
-        switch (sensorInfo) {
-            case Bathroom:
-                //code
-                break;
-            case Hall:
-                //code
-                break;
-            case Garage:
-                //code
-                break;
-            case Kithen:
-                //code
-                break;
-            case Toilet:
-                //code
-                break;
-            case Bedroom:
-                //code
-                break;
-            case LivingRoom:
-                //code
-                break;
-            default:
-                //code
-        }
+//        switch (sensorInfo) {
+//            case Bathroom:
+//                //code
+//                break;
+//            case Hall:
+//                //code
+//                break;
+//            case Garage:
+//                //code
+//                break;
+//            case Kithen:
+//                //code
+//                break;
+//            case Toilet:
+//                //code
+//                break;
+//            case Bedroom:
+//                //code
+//                break;
+//            case LivingRoom:
+//                //code
+//                break;
+//            default:
+//                //code
+//        }
 
 
     }
