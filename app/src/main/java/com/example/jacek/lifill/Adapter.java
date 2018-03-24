@@ -29,6 +29,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.itemName.setText(listOfProducts.get(position).getName());
+        holder.itemPhoto.setImageResource(listOfProducts.get(position).getPhotoUrl());
     }
 
     @Override
@@ -43,7 +44,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         public ViewHolder(View v) {
             super(v);
             itemName = v.findViewById(R.id.item_name);
-//            itemPhoto
+            itemPhoto = v.findViewById(R.id.item_image);
         }
     }
 

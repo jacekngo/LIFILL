@@ -1,7 +1,10 @@
 package com.example.jacek.lifill;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -16,7 +19,9 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private RecyclerView.LayoutManager layoutManager;
+    RecyclerView recyclerView;
+    Context context;
     private Place currentLocation;
     private Integer counter;
 
@@ -28,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        layoutManager = new LinearLayoutManager(context);
     }
 
 
