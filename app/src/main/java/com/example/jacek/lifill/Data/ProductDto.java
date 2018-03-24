@@ -6,10 +6,10 @@ package com.example.jacek.lifill.Data;
 
 public class ProductDto {
     private String name;
-    private String photoUrl;
+    private int photoUrl;
     private Long planedRefillDate;
 
-    public ProductDto(String name, String photoUrl, Long planedRefillDate) {
+    public ProductDto(String name, int photoUrl, Long planedRefillDate) {
         this.name = name;
         this.photoUrl = photoUrl;
         this.planedRefillDate = planedRefillDate;
@@ -23,11 +23,11 @@ public class ProductDto {
         this.name = name;
     }
 
-    public String getPhotoUrl() {
+    public int getPhotoUrl() {
         return photoUrl;
     }
 
-    public void setPhotoUrl(String photoUrl) {
+    public void setPhotoUrl(int photoUrl) {
         this.photoUrl = photoUrl;
     }
 
