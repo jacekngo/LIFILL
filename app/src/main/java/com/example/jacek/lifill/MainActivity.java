@@ -7,13 +7,18 @@ import android.widget.TextView;
 
 import com.example.jacek.lifill.Data.Place;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 public class MainActivity extends AppCompatActivity {
 
+
     private Place currentLocation;
+    private Integer counter;
 
     @BindView(R.id.tv_location)
     private TextView locationTv;
@@ -27,6 +32,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @OnClick(R.id.bt_test)
+    protected void locationProvider() {
+        if (counter == null) {
+            counter = 0;
+        } else {
+            counter++;
+        }
+        Place[] allLocations = Place.values();
+        onChangeLocation(allLocations[counter]);
+    }
 
 
 
@@ -40,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
             Log.e("Location", "received sensor info match current location " + sensorInfo );
             return;
         }
+
+        currentLocation = sensorInfo;
+        locationTv.setText(currentLocation.toString());
+
 
         switch (sensorInfo) {
             case Bathroom:
