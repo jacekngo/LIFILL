@@ -1,18 +1,17 @@
 package com.example.jacek.lifill;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.jacek.lifill.Data.Place;
 import com.example.jacek.lifill.Data.ProductDto;
 import com.example.jacek.lifill.Providers.FakeDataProvider;
-import com.wdullaer.swipeactionadapter.SwipeActionAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,11 +31,14 @@ public class MainActivity extends AppCompatActivity {
     List<ProductDto> listOfProducts;
     @BindView(R.id.tv_location)
     protected TextView locationTv;
+    @BindView(R.id.bt_test)
+    protected ImageView locationImg;
     Adapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         layoutManager = new LinearLayoutManager(this);
@@ -48,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         ItemTouchHelper itemTouchhelper = new ItemTouchHelper(sc);
         itemTouchhelper.attachToRecyclerView(recyclerView);
     }
-
 
 
     @OnClick(R.id.bt_test)
@@ -79,14 +80,17 @@ public class MainActivity extends AppCompatActivity {
 
         currentLocation = sensorInfo;
         locationTv.setText(currentLocation.toString());
-
+        if (currentLocation == Place.Kuchnia) {
+            locationImg.setImageResource(R.drawable.kitchen);
+        } else {
+            locationImg.setImageResource(R.drawable.bathroom);
+        }
         FakeDataProvider dataToDisplay = new FakeDataProvider(currentLocation);
         dataToDisplay.init();
         listOfProducts = dataToDisplay.getProducts();
         adapter = new Adapter(listOfProducts);
         adapter.notifyDataSetChanged();
         recyclerView.setAdapter(adapter);
-
 
 
     }

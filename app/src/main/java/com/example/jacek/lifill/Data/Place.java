@@ -6,6 +6,6 @@ package com.example.jacek.lifill.Data;
 
 public enum Place {
 //    LivingRoom, Toilet,
-    Kitchen, Bathroom
+    Kuchnia, Łazienka
 //    Garage, Bedroom, Hall
 }

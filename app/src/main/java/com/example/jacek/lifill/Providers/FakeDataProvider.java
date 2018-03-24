@@ -22,7 +22,7 @@ public class FakeDataProvider {
 
     public void init (){
                 switch (place) {
-            case Bathroom:
+            case Łazienka:
                 products.add(new ProductDto("Pasta do zębów",R.drawable.pasta, System.currentTimeMillis()-1000 ));
                 products.add(new ProductDto("Gąbka",R.drawable.gabka, System.currentTimeMillis()-1000 ));
                 products.add(new ProductDto("Szampon",R.drawable.szampon, System.currentTimeMillis()-1000 ));
@@ -38,7 +38,7 @@ public class FakeDataProvider {
 //            case Garage:
 //                products.add(new ProductDto("Szampon do auta",R.drawable.szampon, System.currentTimeMillis()-1000 ));
 //                break;
-            case Kitchen:
+            case Kuchnia:
                 products.add(new ProductDto("Gąbka",R.drawable.gabka, System.currentTimeMillis()-1000 ));
                 products.add(new ProductDto("Ręcznik papierowy",R.drawable.recznikpapier, System.currentTimeMillis()-1000 ));
                 products.add(new ProductDto("Worki na śmieci",R.drawable.worki, System.currentTimeMillis()-1000 ));

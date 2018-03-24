@@ -8,8 +8,9 @@
 <ImageView
     android:id="@+id/bt_test"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:src="@drawable/ic_launcher_background"/>
+    android:scaleType="centerCrop"
+    android:layout_height="220dp"
+    android:src="@drawable/lifill"/>
 
     <TextView
         android:id="@+id/tv_location"
@@ -17,7 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:paddingTop="8dp"
-        android:text="Hello World!" />
+        android:text="Szukam jakich produktów potrzebujesz..."
+        android:textStyle="bold"/>
 
     <FrameLayout
         android:id="@+id/container"
