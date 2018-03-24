@@ -9,8 +9,10 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.example.jacek.lifill.Data.Place;
+import com.example.jacek.lifill.Data.ProductDto;
 import com.example.jacek.lifill.Providers.FakeDataProvider;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -25,18 +27,24 @@ public class MainActivity extends AppCompatActivity {
     Context context;
     private Place currentLocation;
     private Integer counter;
-
+List<ProductDto> listOfProducts;
     @BindView(R.id.tv_location)
     protected TextView locationTv;
+    Adapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+recyclerView = new RecyclerView(this);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        layoutManager = new LinearLayoutManager(context);
+//        Adapter adapter = new Adapter(n);
+        listOfProducts = new ArrayList<>();
+        adapter = new Adapter(listOfProducts);
+        recyclerView.setAdapter(adapter);
     }
 
 
@@ -71,7 +79,10 @@ public class MainActivity extends AppCompatActivity {
         locationTv.setText(currentLocation.toString());
 
         FakeDataProvider dataToDisplay = new FakeDataProvider(currentLocation);
-
+        dataToDisplay.init();
+       listOfProducts = dataToDisplay.getProducts();
+//        recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
 
 
 

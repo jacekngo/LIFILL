@@ -20,7 +20,7 @@ public class FakeDataProvider {
         products = new LinkedList<>();
     }
 
-    protected void init (){
+    public void init (){
                 switch (place) {
             case Bathroom:
                 products.add(new ProductDto("Pasta do zębów",R.drawable.pasta, System.currentTimeMillis()-1000 ));
@@ -35,16 +35,16 @@ public class FakeDataProvider {
                 products.add(new ProductDto("Szampon do auta",R.drawable.szampon, System.currentTimeMillis()-1000 ));
                 break;
             case Kithen:
-                //code
+                products.add(new ProductDto("Gąbka",R.drawable.gabka, System.currentTimeMillis()-1000 ));
                 break;
             case Toilet:
-                //code
+                products.add(new ProductDto("Gąbka",R.drawable.gabka, System.currentTimeMillis()-1000 ));
                 break;
             case Bedroom:
-                //code
+                products.add(new ProductDto("Gąbka",R.drawable.gabka, System.currentTimeMillis()-1000 ));
                 break;
             case LivingRoom:
-                //code
+                products.add(new ProductDto("Gąbka",R.drawable.gabka, System.currentTimeMillis()-1000 ));
                 break;
             default:
                 //code

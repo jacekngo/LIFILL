@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.jacek.lifill.Data.ProductDto;
+import com.example.jacek.lifill.Providers.FakeDataProvider;
 
 import java.util.List;
 
@@ -15,7 +16,6 @@ import java.util.List;
  */
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
-
     private List<ProductDto> listOfProducts;
 
     @Override
