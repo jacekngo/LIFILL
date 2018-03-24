@@ -6,25 +6,18 @@
     android:orientation="vertical"
     tools:context="com.example.jacek.lifill.MainActivity">
 <ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:id="@+id/bt_test"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
     android:src="@drawable/ic_launcher_background"/>
-
 
     <TextView
         android:id="@+id/tv_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:paddingBottom="20dp"
-        android:paddingTop="20dp"
+        android:paddingTop="8dp"
         android:text="Hello World!" />
-    <Button
-        android:id="@+id/bt_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="test button" />
 
     <FrameLayout
         android:id="@+id/container"

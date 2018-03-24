@@ -29,7 +29,7 @@ public class FakeDataProvider {
                 products.add(new ProductDto("Szczoteczka", R.drawable.szczoteczka, System.currentTimeMillis()-1000));
                 break;
             case Hall:
-                products.add(new ProductDto("Gąbka",R.drawable.gabka, System.currentTimeMillis()-1000 ));
+                //code
                 break;
             case Garage:
                 products.add(new ProductDto("Szampon do auta",R.drawable.szampon, System.currentTimeMillis()-1000 ));
@@ -38,13 +38,13 @@ public class FakeDataProvider {
                 products.add(new ProductDto("Gąbka",R.drawable.gabka, System.currentTimeMillis()-1000 ));
                 break;
             case Toilet:
-                products.add(new ProductDto("Gąbka",R.drawable.gabka, System.currentTimeMillis()-1000 ));
+                //code
                 break;
             case Bedroom:
-                products.add(new ProductDto("Gąbka",R.drawable.gabka, System.currentTimeMillis()-1000 ));
+                //code
                 break;
             case LivingRoom:
-                products.add(new ProductDto("Gąbka",R.drawable.gabka, System.currentTimeMillis()-1000 ));
+                //code
                 break;
             default:
                 //code

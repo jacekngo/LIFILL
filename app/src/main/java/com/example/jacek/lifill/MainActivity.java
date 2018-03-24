@@ -23,11 +23,12 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView.LayoutManager layoutManager;
+    @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
     Context context;
     private Place currentLocation;
     private Integer counter;
-List<ProductDto> listOfProducts;
+    List<ProductDto> listOfProducts;
     @BindView(R.id.tv_location)
     protected TextView locationTv;
     Adapter adapter;
@@ -37,15 +38,13 @@ List<ProductDto> listOfProducts;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-recyclerView = new RecyclerView(this);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-//        Adapter adapter = new Adapter(n);
         listOfProducts = new ArrayList<>();
         adapter = new Adapter(listOfProducts);
         recyclerView.setAdapter(adapter);
     }
+
 
 
     @OnClick(R.id.bt_test)
@@ -57,21 +56,21 @@ recyclerView = new RecyclerView(this);
         }
         Place[] allLocations = Place.values();
 
-        if (counter>=allLocations.length) {
-            counter=0;}
+        if (counter >= allLocations.length) {
+            counter = 0;
+        }
         onChangeLocation(allLocations[counter]);
     }
 
 
-
-    protected void onChangeLocation (Place sensorInfo){
-        if (sensorInfo==null){
+    protected void onChangeLocation(Place sensorInfo) {
+        if (sensorInfo == null) {
             Log.e("Location", "no location data received");
             // TODO function to check if user leaved home (check wifi or gps info)
         }
 
-        if (sensorInfo.equals(currentLocation)){
-            Log.e("Location", "received sensor info match current location " + sensorInfo );
+        if (sensorInfo.equals(currentLocation)) {
+            Log.e("Location", "received sensor info match current location " + sensorInfo);
             return;
         }
 
@@ -80,9 +79,10 @@ recyclerView = new RecyclerView(this);
 
         FakeDataProvider dataToDisplay = new FakeDataProvider(currentLocation);
         dataToDisplay.init();
-       listOfProducts = dataToDisplay.getProducts();
-//        recyclerView.setAdapter(adapter);
+        listOfProducts = dataToDisplay.getProducts();
+        adapter = new Adapter(listOfProducts);
         adapter.notifyDataSetChanged();
+        recyclerView.setAdapter(adapter);
 
 
 
